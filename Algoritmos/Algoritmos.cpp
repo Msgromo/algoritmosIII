@@ -3,6 +3,7 @@
 
 #include "Pila.h"
 #include "Cola.h"
+#include "ArbolBinario.h"
 
 using namespace std;
 
@@ -169,7 +170,6 @@ int main()
 
     cout << p2.obtenerTope();
 
-    */
 
     Cola c1 = Cola();
 
@@ -180,6 +180,28 @@ int main()
     c1.encolar(5);
 
     Pila p1 = Pila();
+    */
+
+    ArbolBinario* arbol = new ArbolBinario();
+
+    arbol->insertar(25);
+    arbol->insertar(100);
+    arbol->insertar(50);
+    arbol->insertar(75);
+    arbol->insertar(150);
+    arbol->insertar(500);
+    arbol->insertar(1500);
+    arbol->insertar(15012);
+    arbol->insertar(1504);
+    arbol->insertar(15066);
+
+    cout << "Impresion preorden: ";
+    arbol->imprimirPre();
+    cout << "Impresion entreorden: ";
+    arbol->imprimirEntre();
+    cout << "Impresion postorden: ";
+    arbol->imprimirPost();
+    delete arbol;
 
     return 0;
 }

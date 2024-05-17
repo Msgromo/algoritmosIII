@@ -128,11 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Algoritmos.cpp" />
+    <ClCompile Include="ArbolBinario.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Cola.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cola.h" />
+    <ClInclude Include="ArbolBinario.h" />
     <ClInclude Include="Pila.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
