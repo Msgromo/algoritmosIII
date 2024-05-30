@@ -133,6 +133,33 @@ void pasoEntreColas(Cola* desde, Cola* hacia, Pila* pilaAux) {
     }
 }
 
+/*
+void torreHanoiConPilas(Pila* from, Pila* to, Pila* aux, int n = -1)
+{
+    if (n == -1) {
+        n = from->obtenerTamaño();
+    }
+    if (n == 0) {
+        return;
+    }
+    torreHanoi(from, aux, to, n-1);
+    cout << "Muevo disco " << n << " de " << from << " a " << to << endl;
+    torreHanoi(aux, to, from, n - 1);
+}
+*/
+
+void invertirCola(Cola* cola, Pila* pila) {
+    if (!cola->estavacia()) {
+        int frente = cola->obtenerfrente();
+        pila->apilar(frente);
+        cola->desencolar();
+        invertirCola(cola,pila);
+    }
+    int tope = pila->obtenerTope();
+    cola->encolar(tope);
+    pila->desapilar();
+}
+
 
 int main()
 {
@@ -155,8 +182,7 @@ int main()
     }
     esFibonacci(144);
 
-    torreHanoi(5, 'A', 'C', 'B');
-
+    
     Pila p1 = Pila();
     Pila p2 = Pila();
 
@@ -182,26 +208,56 @@ int main()
     Pila p1 = Pila();
     */
 
-    ArbolBinario* arbol = new ArbolBinario();
+    //ArbolBinario* arbol = new ArbolBinario();
 
-    arbol->insertar(25);
-    arbol->insertar(100);
-    arbol->insertar(50);
-    arbol->insertar(75);
-    arbol->insertar(150);
-    arbol->insertar(500);
-    arbol->insertar(1500);
-    arbol->insertar(15012);
-    arbol->insertar(1504);
-    arbol->insertar(15066);
+    //arbol->insertar(25);
+    //arbol->insertar(100);
+    //arbol->insertar(50);
+    //arbol->insertar(75);
+    //arbol->insertar(150);
+    //arbol->insertar(500);
+    //arbol->insertar(1500);
+    //arbol->insertar(15012);
+    //arbol->insertar(1504);
+    //arbol->insertar(15066);
 
-    cout << "Impresion preorden: ";
-    arbol->imprimirPre();
-    cout << "Impresion entreorden: ";
-    arbol->imprimirEntre();
-    cout << "Impresion postorden: ";
-    arbol->imprimirPost();
-    delete arbol;
+    //cout << "Impresion preorden: ";
+    //arbol->imprimirPre();
+    //cout << "Impresion entreorden: ";
+    //arbol->imprimirEntre();
+    //cout << "Impresion postorden: ";
+    //arbol->imprimirPost();
+
+
+    ////ArbolBinario buscado = arbol->buscar(100);
+    //delete arbol;
+
+    //torreHanoi(3, 'A', 'C', 'B');
+
+    Pila* pila1 = new Pila();
+    Cola* cola1 = new Cola();
+
+    cola1->encolar(1);
+    cola1->encolar(2);
+    cola1->encolar(3);
+    cola1->encolar(4);
+    cola1->encolar(5);
+
+    invertirCola(cola1, pila1);
+
+    cout << cola1->obtenerfrente();
+    cola1->desencolar();
+    cout << cola1->obtenerfrente();
+    cola1->desencolar();
+    cout << cola1->obtenerfrente();
+    cola1->desencolar();
+    cout << cola1->obtenerfrente();
+    cola1->desencolar();
+    cout << cola1->obtenerfrente();
+    cola1->desencolar();
+    cout << cola1->obtenerfrente();
+    cola1->desencolar();
+
 
     return 0;
 }

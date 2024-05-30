@@ -11,6 +11,16 @@ ArbolBinario::~ArbolBinario()
 	borrar(raiz);
 }
 
+int ArbolBinario::buscar(int b, Nodo* actual = NULL) {
+	if (b > raiz->info) {
+		return buscar(b, raiz->izq);
+	}
+	if (b < raiz->info) {
+		return buscar(b, raiz->der);
+	}
+	return 0;
+}
+
 void ArbolBinario::borrar(Nodo* reco)
 {
 	if (reco != NULL)

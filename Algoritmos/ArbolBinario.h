@@ -23,6 +23,7 @@ public:
 	void imprimirPre();
 	void imprimirEntre();
 	void imprimirPost();
+	int buscar(int b,Nodo* actual);
 };
 
 #endif // ARBOLBINARIO_H
