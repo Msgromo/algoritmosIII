@@ -7,6 +7,8 @@
 
 using namespace std;
 
+#pragma region ALGORITMOS
+
 string esPar(int c) {
 
     if (c == 1) {
@@ -70,7 +72,6 @@ vector<vector<int>> trianguloPascal(int nivel, vector<vector<int>> lista = { {1}
 
 void esFibonacci(int entrada, int var1 = 0, int var2 = 1) {
     int resultado = var1 + var2;
-    //cout << resultado;
     if (resultado <= entrada) {
         if (entrada == resultado) {
             cout << "es fibo";
@@ -133,21 +134,6 @@ void pasoEntreColas(Cola* desde, Cola* hacia, Pila* pilaAux) {
     }
 }
 
-/*
-void torreHanoiConPilas(Pila* from, Pila* to, Pila* aux, int n = -1)
-{
-    if (n == -1) {
-        n = from->obtenerTamaño();
-    }
-    if (n == 0) {
-        return;
-    }
-    torreHanoi(from, aux, to, n-1);
-    cout << "Muevo disco " << n << " de " << from << " a " << to << endl;
-    torreHanoi(aux, to, from, n - 1);
-}
-*/
-
 void invertirCola(Cola* cola, Pila* pila) {
     if (!cola->estavacia()) {
         int frente = cola->obtenerfrente();
@@ -161,9 +147,17 @@ void invertirCola(Cola* cola, Pila* pila) {
 }
 
 
+#pragma endregion
+
 int main()
 {
-    //cout << "Hello World!\n";
+
+    return 0;
+}
+
+#pragma region FUNCIONES
+
+//cout << "Hello World!\n";
     //int x;
     //cout << "x?: ";
     //cin >> x;
@@ -182,7 +176,7 @@ int main()
     }
     esFibonacci(144);
 
-    
+
     Pila p1 = Pila();
     Pila p2 = Pila();
 
@@ -234,30 +228,28 @@ int main()
 
     //torreHanoi(3, 'A', 'C', 'B');
 
-    Pila* pila1 = new Pila();
-    Cola* cola1 = new Cola();
+    //Pila* pila1 = new Pila();
+    //Cola* cola1 = new Cola();
 
-    cola1->encolar(1);
-    cola1->encolar(2);
-    cola1->encolar(3);
-    cola1->encolar(4);
-    cola1->encolar(5);
+    //cola1->encolar(1);
+    //cola1->encolar(2);
+    //cola1->encolar(3);
+    //cola1->encolar(4);
+    //cola1->encolar(5);
 
-    invertirCola(cola1, pila1);
+    //invertirCola(cola1, pila1);
 
-    cout << cola1->obtenerfrente();
-    cola1->desencolar();
-    cout << cola1->obtenerfrente();
-    cola1->desencolar();
-    cout << cola1->obtenerfrente();
-    cola1->desencolar();
-    cout << cola1->obtenerfrente();
-    cola1->desencolar();
-    cout << cola1->obtenerfrente();
-    cola1->desencolar();
-    cout << cola1->obtenerfrente();
-    cola1->desencolar();
+    //cout << cola1->obtenerfrente();
+    //cola1->desencolar();
+    //cout << cola1->obtenerfrente();
+    //cola1->desencolar();
+    //cout << cola1->obtenerfrente();
+    //cola1->desencolar();
+    //cout << cola1->obtenerfrente();
+    //cola1->desencolar();
+    //cout << cola1->obtenerfrente();
+    //cola1->desencolar();
+    //cout << cola1->obtenerfrente();
+    //cola1->desencolar();
 
-
-    return 0;
-}
+#pragma endregion
