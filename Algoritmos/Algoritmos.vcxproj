@@ -129,12 +129,17 @@
   <ItemGroup>
     <ClCompile Include="Algoritmos.cpp" />
     <ClCompile Include="ArbolBinario.cpp" />
+    <ClCompile Include="Camino.cpp" />
     <ClCompile Include="Pila.cpp" />
     <ClCompile Include="Cola.cpp" />
+    <ClCompile Include="Grafo.cpp" />
+    <ClCompile Include="Nodo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cola.h" />
     <ClInclude Include="ArbolBinario.h" />
+    <ClInclude Include="Nodo.h" />
+    <ClInclude Include="Camino.h" />
     <ClInclude Include="Pila.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

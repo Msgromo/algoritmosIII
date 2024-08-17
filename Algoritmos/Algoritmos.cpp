@@ -1,14 +1,17 @@
 #include <iostream>
 #include <vector>
 
-#include "Pila.h"
-#include "Cola.h"
-#include "ArbolBinario.h"
+//#include "Pila.h"
+//#include "Cola.h"
+//#include "ArbolBinario.h"
+
+#include "Nodo.h"
+#include "Camino.h"
 
 using namespace std;
 
 #pragma region ALGORITMOS
-
+/*
 string esPar(int c) {
 
     if (c == 1) {
@@ -145,13 +148,31 @@ void invertirCola(Cola* cola, Pila* pila) {
     cola->encolar(tope);
     pila->desapilar();
 }
-
+*/
 
 #pragma endregion
 
 int main()
 {
+    Nodo* nodoA = new Nodo("A");
+    Nodo* nodoB = new Nodo("B");
+    Nodo* nodoC = new Nodo("C");
+    Nodo* nodoD = new Nodo("D");
+    Nodo* nodoE = new Nodo("E");
+    Nodo* nodoF = new Nodo("F");
 
+    Camino* caminoAB = new Camino(nodoA, nodoB, 1);
+    Camino* caminoAC = new Camino(nodoA, nodoC, 2);
+    Camino* caminoBE = new Camino(nodoB, nodoE, 3);
+    Camino* caminoBD = new Camino(nodoB, nodoD, 2);
+    Camino* caminoCE = new Camino(nodoC, nodoE, 4);
+    Camino* caminoCD = new Camino(nodoC, nodoD, 1);
+    Camino* caminoDF = new Camino(nodoD, nodoF, 8);
+    Camino* caminoEF = new Camino(nodoE, nodoF, 2);
+
+
+    
+    cout << nodoA->label;
     return 0;
 }
 
