@@ -1,15 +1,11 @@
 #include "Nodo.h"
-#include <iostream>
-#include <vector>
+#include "Camino.h"  // Incluir Camino.h aquí para acceso completo a la clase Camino
 
-using namespace std;
-
-Nodo::Nodo(string label) {
-	this->label = label;
+Nodo::Nodo(std::string label) : label(label) {
+    // No se necesita hacer nada más aquí
 }
 
-/*
-void Nodo::agregarCamino(Camino camino) {
-	caminos.push_back(camino);
+void Nodo::agregarCamino(Nodo* destino, int valor) {
+    Camino* camino = new Camino(this, destino, valor);
+    this->caminos.push_back(camino);
 }
-*/

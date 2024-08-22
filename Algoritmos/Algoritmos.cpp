@@ -152,6 +152,14 @@ void invertirCola(Cola* cola, Pila* pila) {
 
 #pragma endregion
 
+void caminosNodo(Nodo* nodo) {
+    std::cout << "Nodo origen: " << nodo->label << std::endl;
+    std::cout << "Nodos destino: " << std::endl;
+    for (int i = 0; i < nodo->caminos.size(); i++) {
+        std::cout << "-> Nodo: " << nodo->caminos[i]->Destino->label << " Valor: " << nodo->caminos[i]->valor << std::endl;
+    }
+}
+
 int main()
 {
     Nodo* nodoA = new Nodo("A");
@@ -161,18 +169,43 @@ int main()
     Nodo* nodoE = new Nodo("E");
     Nodo* nodoF = new Nodo("F");
 
-    Camino* caminoAB = new Camino(nodoA, nodoB, 1);
-    Camino* caminoAC = new Camino(nodoA, nodoC, 2);
-    Camino* caminoBE = new Camino(nodoB, nodoE, 3);
-    Camino* caminoBD = new Camino(nodoB, nodoD, 2);
-    Camino* caminoCE = new Camino(nodoC, nodoE, 4);
-    Camino* caminoCD = new Camino(nodoC, nodoD, 1);
-    Camino* caminoDF = new Camino(nodoD, nodoF, 8);
-    Camino* caminoEF = new Camino(nodoE, nodoF, 2);
+    nodoA->agregarCamino(nodoB, 1);
+    nodoA->agregarCamino(nodoC, 8);
 
+    nodoB->agregarCamino(nodoA, 1);
+    nodoB->agregarCamino(nodoD, 2);
+    nodoB->agregarCamino(nodoE, 4);
+
+    nodoC->agregarCamino(nodoA, 8);
+    nodoC->agregarCamino(nodoD, 1);
+    nodoC->agregarCamino(nodoE, 4);
+
+    nodoD->agregarCamino(nodoB, 2);
+    nodoD->agregarCamino(nodoC, 1);
+    nodoD->agregarCamino(nodoF, 5);
+
+    nodoE->agregarCamino(nodoC, 4);
+    nodoE->agregarCamino(nodoB, 4);
+    nodoE->agregarCamino(nodoF, 5);
+
+    nodoF->agregarCamino(nodoE, 5);
+    nodoF->agregarCamino(nodoD, 5);
 
     
-    cout << nodoA->label;
+    caminosNodo(nodoA);
+    caminosNodo(nodoB);
+    caminosNodo(nodoC);
+    caminosNodo(nodoD);
+    caminosNodo(nodoE);
+    caminosNodo(nodoF);
+
+    delete nodoA;
+    delete nodoB;
+    delete nodoC;
+    delete nodoD;
+    delete nodoE;
+    delete nodoF;
+
     return 0;
 }
 
