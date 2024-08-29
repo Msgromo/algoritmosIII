@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 //#include "Pila.h"
 //#include "Cola.h"
@@ -160,6 +161,26 @@ void caminosNodo(Nodo* nodo) {
     }
 }
 
+std::vector<Camino*>* caminosPosibles(Nodo* Inicio, Nodo* Destino, std::vector<Camino*>* recorridos = {}, int posicion = 0) {
+
+    if (Inicio->label == Destino->label) {
+        //llegaste a destino capo y ahora?
+    }
+    else {
+        if (std::find(recorridos->begin(), recorridos->end(), Inicio->caminos[posicion]) != recorridos->end()) {
+            //recorrido existe en recorridos
+            caminosPosibles(Inicio, Destino, recorridos, posicion + 1);
+        }
+        else {
+            //recorrido no existe en recorridos
+            recorridos->push_back(Inicio->caminos[posicion]);
+            caminosPosibles(Inicio->caminos[posicion]->Origen, Destino);
+        }
+    }
+
+    return recorridos;
+}
+
 int main()
 {
     Nodo* nodoA = new Nodo("A");
@@ -190,7 +211,6 @@ int main()
 
     nodoF->agregarCamino(nodoE, 5);
     nodoF->agregarCamino(nodoD, 5);
-
     
     caminosNodo(nodoA);
     caminosNodo(nodoB);
@@ -198,6 +218,8 @@ int main()
     caminosNodo(nodoD);
     caminosNodo(nodoE);
     caminosNodo(nodoF);
+
+
 
     delete nodoA;
     delete nodoB;
